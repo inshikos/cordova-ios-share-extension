@@ -40,7 +40,6 @@ class ShareViewController: SLComposeServiceViewController {
     }
     private func loadJsExtensionValues(f: Dictionary<String,String> -> Void) {
         let content = extensionContext!.inputItems[0] as! NSExtensionItem
-        let contentCount = content.userInfo?.count
         if (self.hasAttachmentOfType(content, contentType: contentTypeList)) {
             self.loadJsDictionary(content) { dict in
                 f(dict)
@@ -48,9 +47,11 @@ class ShareViewController: SLComposeServiceViewController {
         }
         else {
             self.loadUTIDictionary(content) { dict in
-                // launch once all content items have been processed
-                if (dict.count==contentCount) {
-                    f(dict)
+		// launch once all items have been processed
+                if let contentCount = content.userInfo!["NSExtensionItemAttachmentsKey"]!.count{
+                    if (dict.count==contentCount) {
+                        f(dict)
+                    }
                 }
             }
         }
