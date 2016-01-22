@@ -10,3 +10,5 @@ https://gist.github.com/slorber/9df4d1c3aa787c78c113
 Additional support for multiple shared content types added to handle combinations of single image, text, and URL as dictated by source application and actual content.
 
 This is only a generalized snapshot of my app's proprietary share extension.  I'm a product person who created this with zero Swift or native iOS language knowledge, so I make no claims on its quality or efficiency.
+
+Blog post with more details can be seen at: https://www.inshikos.com/blogs/76/dev/link-and-photo-sharing-to-a-cordova-ios-app-via-share-extensions-ios-8
